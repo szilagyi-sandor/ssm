@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useStageContext } from './StageContext';
+import { useStageContext } from './stageContext_';
 import classes from './theLine.module.scss';
 
 type Props = {

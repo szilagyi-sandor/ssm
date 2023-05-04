@@ -1,5 +1,5 @@
 import { Component, ErrorInfo, PropsWithChildren, ReactNode } from 'react';
-import { ErrorProvider } from './ErrorContext';
+import { ErrorProvider } from './errorContext_';
 
 type Props = {
   fallback?: ReactNode | undefined;
