@@ -1,0 +1,16 @@
+.button[type='button'],
+.button {
+  @apply px-4 py-2 rounded-full;
+
+  &.stage-0 {
+    @apply bg-emerald-500;
+  }
+
+  &.stage-1 {
+    @apply bg-sky-500;
+  }
+
+  &.error {
+    @apply bg-red-500;
+  }
+}

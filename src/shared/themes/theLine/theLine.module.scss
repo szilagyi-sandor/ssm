@@ -1,0 +1,92 @@
+// TODO: every loading should last at least a few seconds
+
+@property --beforeColor {
+  syntax: '<color>';
+  initial-value: #fff;
+  inherits: false;
+}
+
+$emerald-400: rgba(52, 211, 153, 1);
+$emerald-500: rgba(16, 185, 129, 1);
+
+$sky-400: rgba(56, 189, 248, 1);
+$sky-500: rgba(14, 165, 233, 1);
+
+$red-500: rgba(239, 68, 68, 1);
+$red-600: rgba(220, 38, 38, 1);
+
+$yellow-300: #fde047;
+$yellow-400: #facc15;
+
+@mixin box-shadow($color-1, $color-2) {
+  box-shadow: 0 0 2px 2px #fff, 0 0 10px 2px $color-1, 0 0 14px 4px $color-2;
+}
+
+@mixin before-background() {
+  background: linear-gradient(
+    0deg,
+    transparent 0%,
+    var(--beforeColor) 50%,
+    transparent 100%
+  );
+}
+
+.theLineWrapper {
+  @apply animate-appear-slow;
+
+  .theLine {
+    @apply animate-scale;
+    @apply fixed w-[3px] bg-white top-0 bottom-0 right-1/4 transition-[box-shadow] duration-1000 z-[10000];
+
+    &:before {
+      @apply block content-[""] absolute left-0 right-0 top-0 h-[80%] bg-white opacity-75 duration-1000;
+      @apply animate-pass-through-vertical;
+      transition-property: --beforeColor;
+      @include before-background();
+    }
+
+    &.stage-0 {
+      @include box-shadow($emerald-400, $emerald-500);
+
+      &:before {
+        --beforeColor: #{$emerald-400};
+      }
+    }
+
+    &.stage-1 {
+      @include box-shadow($sky-400, $sky-500);
+
+      &:before {
+        --beforeColor: #{$sky-400};
+      }
+    }
+
+    &.error {
+      @include box-shadow($red-500, $red-600);
+
+      &:before {
+        --beforeColor: #{$red-500};
+      }
+    }
+
+    &.loading {
+      @include box-shadow($yellow-300, $yellow-400);
+
+      &:before {
+        --beforeColor: #{$yellow-300};
+      }
+    }
+  }
+
+  .grid {
+    @apply fixed w-1/4 top-0 bottom-0 right-[12.5%] z-[0] bg-[length:40px_40px];
+
+    background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.2) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    mask-image: linear-gradient(90deg, transparent, black, transparent);
+  }
+}

@@ -23,3 +23,5 @@
 - use domain.ts files in folders
 
 - use import aliases, when convenient and it is not coming from the same alias
+
+- import order is: vite/react, libraries, aliases (@), relative imports, styles, images

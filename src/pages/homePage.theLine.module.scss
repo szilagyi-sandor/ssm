@@ -1,0 +1,13 @@
+.homePage {
+  @apply container mx-auto;
+
+  header {
+    h2 {
+      @apply text-8xl;
+    }
+  }
+
+  p {
+    @apply mb-5;
+  }
+}

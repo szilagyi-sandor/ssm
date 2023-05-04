@@ -4,6 +4,7 @@ import { ErrorProvider } from './ErrorContext';
 type Props = {
   fallback?: ReactNode | undefined;
   onCatch?: (error: Error, errorInfo: ErrorInfo) => void;
+  onUnmount?: () => void;
 };
 
 type State = {
@@ -26,6 +27,14 @@ export class ErrorBoundary extends Component<PropsWithChildren<Props>, State> {
 
     if (onCatch) {
       onCatch(error, errorInfo);
+    }
+  }
+
+  componentWillUnmount(): void {
+    const { onUnmount } = this.props;
+
+    if (onUnmount) {
+      onUnmount();
     }
   }
 

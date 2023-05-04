@@ -1,0 +1,9 @@
+$black-300: #0e0f11;
+$white: #fff;
+
+.rootError {
+  color: $white;
+  min-height: 100vh;
+  text-align: center;
+  background-color: $black-300;
+}

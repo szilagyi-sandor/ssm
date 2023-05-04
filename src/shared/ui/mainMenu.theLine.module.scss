@@ -1,0 +1,31 @@
+.mainMenu {
+  .content {
+    @apply container flex mx-auto;
+
+    h1 {
+      a {
+        @apply inline-block p-4;
+
+        .text {
+          @apply inline-block relative;
+        }
+      }
+    }
+
+    nav {
+      ul {
+        @apply flex;
+
+        li {
+          a {
+            @apply inline-block p-4;
+          }
+        }
+      }
+    }
+
+    .themeChangerContainer {
+      @apply inline-block p-4 ml-auto;
+    }
+  }
+}

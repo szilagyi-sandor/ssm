@@ -1,0 +1,17 @@
+.layout {
+  @apply min-h-screen bg-black-300 text-white flex flex-col;
+
+  main {
+    @apply flex-grow;
+
+    .pageContainer {
+      @apply animate-appear;
+    }
+  }
+
+  footer {
+    .footerContent {
+      @apply container mx-auto;
+    }
+  }
+}

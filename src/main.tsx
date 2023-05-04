@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { ErrorPage } from '@pages';
-import { ErrorBoundary } from '@shared/error';
+import { ThemeProvider } from '@shared/themes';
+import { StageProvider } from '@shared/themes/theLine';
+import { ErrorBoundary, RootError } from '@shared/error';
 import { getAppsettings, AppsettingsProvider } from '@features/appsettings';
 import { App } from './App';
 import './assets/styles/global.css';
@@ -18,9 +19,13 @@ const startApp = async () => {
 
   ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
-      <ErrorBoundary fallback={<ErrorPage />}>
+      <ErrorBoundary fallback={<RootError />}>
         <AppsettingsProvider value={appsettings}>
-          <App />
+          <ThemeProvider>
+            <StageProvider>
+              <App />
+            </StageProvider>
+          </ThemeProvider>
         </AppsettingsProvider>
       </ErrorBoundary>
     </React.StrictMode>

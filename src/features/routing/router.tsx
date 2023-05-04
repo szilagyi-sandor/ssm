@@ -1,16 +1,28 @@
 import { Outlet, createBrowserRouter } from 'react-router-dom';
 import { Layout } from '@shared/ui';
 import { routes } from '@shared/constants';
-import { notFoundError, ErrorProvider } from '@shared/error';
-import { ErrorPage, LazyHomePage, LazySandboxPage } from '@pages';
+import {
+  RootError,
+  ErrorThrower,
+  ErrorBoundary,
+  notFoundError,
+} from '@shared/error';
+import {
+  LazyHomePage,
+  LazySandboxPage,
+  LazyReferencesPage,
+  LazyTechnologiesPage,
+} from '@pages';
 
 export const router = createBrowserRouter([
   {
     path: routes.home,
     element: (
-      <Layout>
-        <Outlet />
-      </Layout>
+      <ErrorBoundary fallback={<RootError />}>
+        <Layout>
+          <Outlet />
+        </Layout>
+      </ErrorBoundary>
     ),
     children: [
       {
@@ -22,12 +34,16 @@ export const router = createBrowserRouter([
         element: <LazySandboxPage />,
       },
       {
+        path: routes.references,
+        element: <LazyReferencesPage />,
+      },
+      {
+        path: routes.technologies,
+        element: <LazyTechnologiesPage />,
+      },
+      {
         path: '*',
-        element: (
-          <ErrorProvider value={notFoundError}>
-            <ErrorPage />
-          </ErrorProvider>
-        ),
+        element: <ErrorThrower error={notFoundError} />,
       },
     ],
   },

@@ -1,0 +1,25 @@
+.loadingIndicator {
+  @apply fixed right-8 bottom-8 z-[110];
+
+  .indicator {
+    .text {
+      @apply animate-appear;
+
+      .dot {
+        @apply opacity-0;
+
+        &:first-child {
+          @apply animate-[loading-dot-appear-1_1500ms_linear_infinite_320ms];
+        }
+
+        &:nth-child(2) {
+          @apply animate-[loading-dot-appear-2_1500ms_linear_infinite_320ms];
+        }
+
+        &:last-child {
+          @apply animate-[loading-dot-appear-3_1500ms_linear_infinite_320ms];
+        }
+      }
+    }
+  }
+}
