@@ -1,2 +1,2 @@
 export * from './TheLine';
-export * from './stageContext_';
+export * from './stageContext';
