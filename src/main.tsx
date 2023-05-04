@@ -5,6 +5,7 @@ import { StageProvider } from '@shared/themes/theLine';
 import { ErrorBoundary, RootError } from '@shared/error';
 import { getAppsettings, AppsettingsProvider } from '@features/appsettings';
 import { App } from './App';
+import './assets/styles/fonts.scss';
 import './assets/styles/defaults.scss';
 
 const mockType = import.meta.env.VITE_MOCK_TYPE;
