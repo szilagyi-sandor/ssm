@@ -1,31 +1,39 @@
+@import '/src/assets/styles/mixins.theLine.scss';
+
 .mainMenu {
   .content {
-    @apply container flex mx-auto;
+    @include container;
+    display: flex;
 
     h1 {
       a {
-        @apply inline-block p-4;
+        padding: 16px;
+        display: inline-block;
 
         .text {
-          @apply inline-block relative;
+          position: relative;
+          display: inline-block;
         }
       }
     }
 
     nav {
       ul {
-        @apply flex;
+        display: flex;
 
         li {
           a {
-            @apply inline-block p-4;
+            display: inline-block;
+            padding: 16px;
           }
         }
       }
     }
 
     .themeChangerContainer {
-      @apply inline-block p-4 ml-auto;
+      display: inline-block;
+      padding: 16px;
+      margin-left: auto;
     }
   }
 }

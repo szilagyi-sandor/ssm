@@ -1,16 +1,20 @@
+@import '/src/assets/styles/variables.theLine.scss';
+
 .button[type='button'],
 .button {
-  @apply px-4 py-2 rounded-full;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  border: 0;
 
   &.stage-0 {
-    @apply bg-emerald-500;
+    background-color: $emerald-500;
   }
 
   &.stage-1 {
-    @apply bg-sky-500;
+    background-color: $sky-500;
   }
 
   &.error {
-    @apply bg-red-500;
+    background-color: $red-500;
   }
 }

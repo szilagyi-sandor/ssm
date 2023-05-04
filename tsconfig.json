@@ -23,12 +23,6 @@
       "@features/*": ["src/features/*"]
     }
   },
-  "include": [
-    "src",
-    ".eslintrc.cjs",
-    "vite.config.ts",
-    "postcss.config.cjs",
-    "tailwind.config.cjs"
-  ],
+  "include": ["src", ".eslintrc.cjs", "vite.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,13 +1,9 @@
-.homePage {
-  @apply container mx-auto;
+@import '/src/assets/styles/mixins.theLine.scss';
 
-  header {
-    h2 {
-      @apply text-8xl;
-    }
-  }
+.homePage {
+  @include container;
 
   p {
-    @apply mb-5;
+    margin-bottom: 2rem;
   }
 }

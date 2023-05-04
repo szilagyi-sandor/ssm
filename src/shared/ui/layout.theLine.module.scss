@@ -1,17 +1,33 @@
+@import '/src/assets/styles/mixins.theLine.scss';
+@import '/src/assets/styles/variables.theLine.scss';
+
 .layout {
-  @apply min-h-screen bg-black-300 text-white flex flex-col;
+  color: $white;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: $black-300;
 
   main {
-    @apply flex-grow;
+    flex-grow: 1;
 
     .pageContainer {
-      @apply animate-appear;
+      animation: appear 320ms linear;
     }
   }
 
   footer {
     .footerContent {
-      @apply container mx-auto;
+      @include container;
     }
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

@@ -1,3 +1,5 @@
+@import '/src/assets/styles/mixins.theLine.scss';
+
 .errorPage {
-  @apply container mx-auto;
+  @include container;
 }

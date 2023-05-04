@@ -25,3 +25,5 @@
 - use import aliases, when convenient and it is not coming from the same alias
 
 - import order is: vite/react, libraries, aliases (@), relative imports, styles, images
+
+- use rem and em css units when convenient

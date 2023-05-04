@@ -1,25 +1,82 @@
 .loadingIndicator {
-  @apply fixed right-8 bottom-8 z-[110];
+  right: 32px;
+  bottom: 32px;
+  z-index: 110;
+  position: fixed;
 
   .indicator {
     .text {
-      @apply animate-appear;
+      animation: appear 320ms linear;
 
       .dot {
-        @apply opacity-0;
+        opacity: 0;
 
         &:first-child {
-          @apply animate-[loading-dot-appear-1_1500ms_linear_infinite_320ms];
+          animation: dot-appear-1 1500ms linear infinite 320ms;
         }
 
         &:nth-child(2) {
-          @apply animate-[loading-dot-appear-2_1500ms_linear_infinite_320ms];
+          animation: dot-appear-2 1500ms linear infinite 320ms;
         }
 
         &:last-child {
-          @apply animate-[loading-dot-appear-3_1500ms_linear_infinite_320ms];
+          animation: dot-appear-3 1500ms linear infinite 320ms;
         }
       }
     }
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes dot-appear-1 {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
+  66% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes dot-appear-2 {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes dot-appear-3 {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

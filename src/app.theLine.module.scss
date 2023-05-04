@@ -1,6 +1,4 @@
-// TODO: create variables
-$black-300: #0e0f11;
-$white: #fff;
+@import './assets/styles/variables.theLine.scss';
 
 .app {
   color: $white;
