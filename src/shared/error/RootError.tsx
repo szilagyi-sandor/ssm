@@ -1,5 +1,6 @@
-import { useGetThemeClasses } from '@shared/themes';
-import { errorInfos } from './domain';
+import { useGetThemeClasses } from '../themes';
+import { errorTexts } from './errorTexts';
+// TODO: #1 remove:
 import theLineClasses from './rootError.theLine.module.scss';
 
 function RootError() {
@@ -7,7 +8,7 @@ function RootError() {
     theLineClasses,
   });
 
-  const { title, message } = errorInfos.default;
+  const { title, message } = errorTexts.default;
 
   return (
     <section className={classes.rootError}>
@@ -21,3 +22,5 @@ function RootError() {
 }
 
 export { RootError };
+
+// CHECKED 0.2.0

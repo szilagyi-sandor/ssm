@@ -7,3 +7,5 @@ export const useGetThemeClasses = (themeClasses: Partial<ThemeClasses>) => {
 
   return getThemeClasses(theme.id, themeClasses);
 };
+
+// CHECKED 0.2.0

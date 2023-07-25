@@ -6,3 +6,5 @@ module.exports = {
   singleQuote: true,
   endOfLine: 'auto',
 };
+
+// CHECKED 0.2.0

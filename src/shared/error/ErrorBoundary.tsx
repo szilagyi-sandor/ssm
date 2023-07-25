@@ -51,3 +51,5 @@ export class ErrorBoundary extends Component<PropsWithChildren<Props>, State> {
     return children;
   }
 }
+
+// CHECKED 0.2.0

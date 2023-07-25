@@ -21,3 +21,5 @@ function TechnologiesPage() {
 }
 
 export default TechnologiesPage;
+
+// CHECKED 0.2.0

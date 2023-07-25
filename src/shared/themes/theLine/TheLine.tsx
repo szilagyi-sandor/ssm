@@ -1,13 +1,14 @@
 import classNames from 'classnames';
 import { useStageContext } from './stageContext';
+import { useLoadingContext } from '../../loading';
 import classes from './theLine.module.scss';
 
 type Props = {
-  loading: boolean;
   error: boolean;
 };
 
-function TheLine({ error, loading }: Props) {
+function TheLine({ error }: Props) {
+  const loading = useLoadingContext();
   const stage = useStageContext();
   const available = !error && !loading;
 
@@ -28,3 +29,5 @@ function TheLine({ error, loading }: Props) {
 }
 
 export { TheLine };
+
+// CHECKED 0.2.0

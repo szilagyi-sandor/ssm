@@ -34,3 +34,5 @@ export default defineConfig({
     setupFiles: ['./src/setupTests.ts'],
   },
 });
+
+// CHECKED 0.2.0

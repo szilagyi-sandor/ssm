@@ -1,5 +1,7 @@
 @import './assets/styles/variables.theLine.scss';
 
+// TODO: #1 move theme specific stuff from here
+
 .app {
   color: $white;
   min-height: 100vh;
@@ -12,10 +14,7 @@
   h4,
   h5,
   h6 {
-    margin-top: 0;
     font-weight: 500;
-    line-height: 1.2;
-    margin-bottom: 1em;
     font-family: $headingFont;
 
     small {
@@ -47,3 +46,5 @@
     font-size: 1.8rem;
   }
 }
+
+// CHECKED 0.2.0

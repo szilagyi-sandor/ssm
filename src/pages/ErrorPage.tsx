@@ -1,10 +1,10 @@
+import { Button } from '@shared/ui';
+import { useGetThemeClasses } from '@shared/themes';
 import {
-  getErrorInfo,
+  getErrorText,
   useErrorContext,
   convertToCustomError,
 } from '@shared/error';
-import { Button } from '@shared/ui';
-import { useGetThemeClasses } from '@shared/themes';
 import theLineClasses from './errorPage.theLine.module.scss';
 
 function ErrorPage() {
@@ -19,7 +19,7 @@ function ErrorPage() {
   }
 
   const customError = convertToCustomError(error);
-  const { title, message } = getErrorInfo(customError);
+  const { title, message } = getErrorText(customError);
 
   return (
     <section className={classes.errorPage}>
@@ -42,3 +42,5 @@ function ErrorPage() {
 }
 
 export default ErrorPage;
+
+// CHECKED 0.2.0

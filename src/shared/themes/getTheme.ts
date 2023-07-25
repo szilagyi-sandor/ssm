@@ -7,5 +7,8 @@ export const getTheme = () => {
     return JSON.parse(storageTheme);
   }
 
+  // TODO: #1 should come from appsettings
   return themes.theLine;
 };
+
+// CHECKED 0.2.0

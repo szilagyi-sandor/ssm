@@ -46,3 +46,5 @@ export function StageProvider({ children }: PropsWithChildren) {
 
   return <StageValueProvider value={stage}>{children}</StageValueProvider>;
 }
+
+// CHECKED 0.2.0

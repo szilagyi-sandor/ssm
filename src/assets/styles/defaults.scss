@@ -102,7 +102,7 @@ h6 {
   margin-top: 0;
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: 1em;
+  margin-bottom: 0;
   font-family: $headingFont;
 
   small {
@@ -224,3 +224,5 @@ svg {
 template {
   display: none;
 }
+
+// CHECKED 0.2.0

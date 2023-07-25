@@ -2,9 +2,17 @@
 
 .button[type='button'],
 .button {
-  padding: 8px 16px;
-  border-radius: 9999px;
   border: 0;
+  color: $white;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 10px 18px;
+  font-size: 1.6rem;
+  border-radius: 32px;
+  font-family: $headingFont;
+  transition-property: background-color, color;
+  transition-duration: $lineTransitionDuration;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   &.stage-0 {
     background-color: $emerald-500;
@@ -14,7 +22,14 @@
     background-color: $sky-500;
   }
 
+  &.loading {
+    background-color: $yellow-300;
+    color: $black-300;
+  }
+
   &.error {
     background-color: $red-500;
   }
 }
+
+// CHECKED 0.2.0

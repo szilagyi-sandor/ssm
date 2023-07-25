@@ -12,3 +12,5 @@ export const handlers = [
     );
   }),
 ];
+
+// CHECKED 0.2.0

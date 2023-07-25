@@ -19,8 +19,8 @@
     z-index: 10000;
     position: fixed;
     background-color: $white;
-    transition-duration: 1000ms;
     transition-property: box-shadow;
+    transition-duration: $lineTransitionDuration;
     animation: scale 3s linear infinite 0s alternate;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -34,7 +34,7 @@
       display: block;
       position: absolute;
       background-color: $white;
-      transition-duration: 1000ms;
+      transition-duration: $lineTransitionDuration;
       transition-property: --beforeColor;
       animation: pass-through 3s linear infinite;
       background: linear-gradient(
@@ -128,3 +128,5 @@
     top: 100%;
   }
 }
+
+// CHECKED 0.2.0

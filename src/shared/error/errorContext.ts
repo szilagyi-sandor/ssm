@@ -5,3 +5,5 @@ const errorContext = createContext<Error | undefined>(undefined);
 export const ErrorProvider = errorContext.Provider;
 
 export const useErrorContext = () => useContext(errorContext);
+
+// CHECKED 0.2.0

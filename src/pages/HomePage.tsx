@@ -17,9 +17,11 @@ function HomePage() {
         I'm Sándor Szilágyi, a full stack developer and this is my portfolio.
       </p>
 
-      <Button>Check out other themes!</Button>
+      <Button>Check out my themes</Button>
     </section>
   );
 }
 
 export default HomePage;
+
+// CHECKED 0.2.0

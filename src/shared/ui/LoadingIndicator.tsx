@@ -1,4 +1,4 @@
-import { useGetThemeClasses } from '@shared/themes';
+import { useGetThemeClasses } from '../themes';
 import theLineClasses from './loadingIndicator.theLine.module.scss';
 
 type Props = {
@@ -31,3 +31,5 @@ function LoadingIndicator({ loading }: Props) {
 }
 
 export { LoadingIndicator };
+
+// CHECKED 0.2.0

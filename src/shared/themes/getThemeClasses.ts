@@ -1,5 +1,7 @@
 import { ThemeClasses, themes } from './domain';
 
+// TODO: #1 will not be needed
+
 export const getThemeClasses = (
   currentThemeId: number,
   themeClasses: Partial<ThemeClasses>
@@ -15,3 +17,5 @@ export const getThemeClasses = (
       return {};
   }
 };
+
+// CHECKED 0.2.0

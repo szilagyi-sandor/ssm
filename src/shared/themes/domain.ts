@@ -4,8 +4,8 @@ export type Theme = {
 };
 
 export const themes = {
-  theLine: { id: 0, name: 'The line' },
-  shapes: { id: 1, name: 'Shapes' },
+  theLine: { id: 1, name: 'The line' },
+  shapes: { id: 2, name: 'Shapes' },
 };
 
 export type ThemeKey = keyof typeof themes;
@@ -14,3 +14,5 @@ export type ThemeClasses = {
   theLineClasses?: CSSModuleClasses;
   shapesClasses?: CSSModuleClasses;
 };
+
+// CHECKED 0.2.0

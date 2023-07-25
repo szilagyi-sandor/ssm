@@ -7,3 +7,5 @@ function ErrorThrower({ error }: Props): JSX.Element {
 }
 
 export { ErrorThrower };
+
+// CHECKED 0.2.0

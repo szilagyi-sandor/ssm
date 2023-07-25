@@ -1,10 +1,13 @@
 /* eslint-disable react/button-has-type */
 import { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 import classNames from 'classnames';
-import { useErrorContext } from '@shared/error';
-import { useGetThemeClasses } from '@shared/themes';
-import { useStageContext } from '@shared/themes/theLine';
+import { useErrorContext } from '../error';
+import { useGetThemeClasses } from '../themes';
+import { useLoadingContext } from '../loading';
+import { useStageContext } from '../themes/theLine';
 import theLineClasses from './button.theLine.module.scss';
+
+// TODO: #1 remove theme related things
 
 function Button({
   children,
@@ -12,13 +15,14 @@ function Button({
   className,
   ...rest
 }: PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>) {
-  const stage = useStageContext();
-
   const classes = useGetThemeClasses({
     theLineClasses,
   });
 
+  const stage = useStageContext();
   const error = !!useErrorContext();
+  const loading = useLoadingContext();
+  const available = !error && !loading;
 
   return (
     <button
@@ -26,8 +30,9 @@ function Button({
       type={type}
       className={classNames(classes.button, className, {
         [classes.error]: error,
-        [classes['stage-0']]: !error && stage === 0,
-        [classes['stage-1']]: !error && stage === 1,
+        [classes.loading]: !error && loading,
+        [classes['stage-0']]: available && stage === 0,
+        [classes['stage-1']]: available && stage === 1,
       })}
     >
       {children}
@@ -36,3 +41,5 @@ function Button({
 }
 
 export { Button };
+
+// CHECKED 0.2.0

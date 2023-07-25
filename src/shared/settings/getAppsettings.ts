@@ -15,3 +15,5 @@ export const getAppsettings = async (): Promise<Appsettings> => {
     return {};
   }
 };
+
+// CHECKED 0.2.0

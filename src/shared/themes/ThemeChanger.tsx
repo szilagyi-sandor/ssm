@@ -28,3 +28,5 @@ function ThemeChanger() {
 }
 
 export { ThemeChanger };
+
+// CHECKED 0.2.0

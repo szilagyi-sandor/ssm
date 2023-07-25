@@ -21,3 +21,5 @@ function ReferencesPage() {
 }
 
 export default ReferencesPage;
+
+// CHECKED 0.2.0

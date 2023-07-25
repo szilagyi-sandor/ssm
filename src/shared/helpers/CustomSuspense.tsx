@@ -7,54 +7,47 @@ import {
 } from 'react';
 
 type Props = {
-  setSuspenseActive: (active: boolean) => void;
+  setSuspense: (active: boolean) => void;
 };
 
-function FallbackWrapper({
-  children,
-  setSuspenseActive,
-}: PropsWithChildren<Props>) {
+function FallbackWrapper({ children, setSuspense }: PropsWithChildren<Props>) {
   useEffect(() => {
-    setSuspenseActive(true);
-  }, [setSuspenseActive]);
+    setSuspense(true);
+  }, [setSuspense]);
 
   useEffect(() => {
     return () => {
-      setSuspenseActive(false);
+      setSuspense(false);
     };
-  }, [setSuspenseActive]);
+  }, [setSuspense]);
 
   return children as ReactElement;
 }
 
-function ChildrenWrapper({
-  children,
-  setSuspenseActive,
-}: PropsWithChildren<Props>) {
+function ChildrenWrapper({ children, setSuspense }: PropsWithChildren<Props>) {
   useEffect(() => {
-    setSuspenseActive(false);
-  }, [setSuspenseActive]);
+    setSuspense(false);
+  }, [setSuspense]);
+
   return children as ReactElement;
 }
 
 function CustomSuspense({
   children,
   fallback,
-  setSuspenseActive,
+  setSuspense,
 }: PropsWithChildren<SuspenseProps & Props>) {
   return (
     <Suspense
       fallback={
-        <FallbackWrapper setSuspenseActive={setSuspenseActive}>
-          {fallback}
-        </FallbackWrapper>
+        <FallbackWrapper setSuspense={setSuspense}>{fallback}</FallbackWrapper>
       }
     >
-      <ChildrenWrapper setSuspenseActive={setSuspenseActive}>
-        {children}
-      </ChildrenWrapper>
+      <ChildrenWrapper setSuspense={setSuspense}>{children}</ChildrenWrapper>
     </Suspense>
   );
 }
 
 export { CustomSuspense };
+
+// CHECKED 0.2.0

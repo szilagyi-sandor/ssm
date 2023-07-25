@@ -27,3 +27,5 @@ module.exports = {
     'react/jsx-props-no-spreading': 0,
   },
 };
+
+// CHECKED 0.2.0

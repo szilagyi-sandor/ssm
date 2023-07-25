@@ -1,3 +1,4 @@
+// TODO: #1 variables should go to the wrapper element inside theme folder
 $white: #fff;
 
 $black-300: #0e0f11;
@@ -14,5 +15,9 @@ $red-600: #dc2626;
 $yellow-300: #fde047;
 $yellow-400: #facc15;
 
+$lineTransitionDuration: 1000ms;
+
 $font: 'Montserrat', sans-serif;
 $headingFont: 'Roboto', sans-serif;
+
+// CHECKED 0.2.0

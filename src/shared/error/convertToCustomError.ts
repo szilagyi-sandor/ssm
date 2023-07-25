@@ -8,3 +8,5 @@ export const convertToCustomError = (error: Error): CustomError => {
     cause: parsedCause.success ? parsedCause.data : undefined,
   };
 };
+
+// CHECKED 0.2.0
