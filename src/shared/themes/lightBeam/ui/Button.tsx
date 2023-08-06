@@ -1,9 +1,9 @@
 /* eslint-disable react/button-has-type */
 import { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 import classNames from 'classnames';
-import { useLightBeamStageContext } from '..';
 import { useErrorContext } from '../../../error';
 import { useSmoothLoadingContext } from '../../../loading';
+import { useLightBeamStageContext } from '../lightBeamStageContext';
 import classes from './button.module.scss';
 
 function Button({

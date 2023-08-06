@@ -1,25 +1,18 @@
-import { ComingSoon } from '@shared/themes/lightBeam/ui';
-import { useGetThemeClasses } from '@shared/themes';
-import lightBeam from './technologiesPage.theLine.module.scss';
+import { themes, useThemeContext } from '@shared/themes';
+import { LazyLightBeamTechnologiesPage } from './lightBeam';
 
 function TechnologiesPage() {
-  const classes = useGetThemeClasses({
-    lightBeam,
-  });
+  const { id } = useThemeContext();
 
-  return (
-    <section className={classes.technologiesPage}>
-      <header>
-        <h2>Technologies page</h2>
-      </header>
+  switch (id) {
+    case themes.lightBeam.id:
+      return <LazyLightBeamTechnologiesPage />;
 
-      <div>
-        <ComingSoon />
-      </div>
-    </section>
-  );
+    default:
+      return null;
+  }
 }
 
-export default TechnologiesPage;
+export { TechnologiesPage };
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

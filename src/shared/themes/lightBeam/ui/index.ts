@@ -1,3 +1,4 @@
+export * from './Button';
 export * from './MainMenu';
 export * from './LightBeam';
 export * from './ComingSoon';

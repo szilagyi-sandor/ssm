@@ -1,7 +1,11 @@
 @import '/src/assets/styles/lightBeam/mixins.scss';
 
-.errorPage {
+.homePage {
   @include container;
+
+  p {
+    margin-bottom: 2rem;
+  }
 }
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

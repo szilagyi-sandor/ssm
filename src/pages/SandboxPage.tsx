@@ -1,36 +1,18 @@
-import { useState } from 'react';
-import { useSmoothStateSwitcher } from '@shared/helpers';
-import { ThemeChanger, useGetThemeClasses } from '@shared/themes';
-import lightBeam from './sandboxPage.theLine.module.scss';
+import { themes, useThemeContext } from '@shared/themes';
+import { LazyLightBeamSandboxPage } from './lightBeam';
 
 function SandboxPage() {
-  const classes = useGetThemeClasses({
-    lightBeam,
-  });
+  const { id } = useThemeContext();
 
-  const [count, setCount] = useState(0);
-  const delayedState = useSmoothStateSwitcher(count, false);
+  switch (id) {
+    case themes.lightBeam.id:
+      return <LazyLightBeamSandboxPage />;
 
-  return (
-    <section className={classes.sandboxPage}>
-      <header>
-        <h2>Sandbox</h2>
-      </header>
-
-      <button
-        type="button"
-        onClick={() => setCount((prevCount) => prevCount + 1)}
-      >
-        count is {count}
-      </button>
-
-      <div>delayed count is: {delayedState}</div>
-
-      <ThemeChanger />
-    </section>
-  );
+    default:
+      return null;
+  }
 }
 
-export default SandboxPage;
+export { SandboxPage };
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

@@ -1,47 +1,18 @@
-import { useGetThemeClasses } from '@shared/themes';
-import {
-  getErrorText,
-  useErrorContext,
-  convertToCustomError,
-} from '@shared/error';
-// TODO: #1 update this import
-import { Button } from '@shared/themes/lightBeam/ui/Button';
-import lightBeam from './errorPage.theLine.module.scss';
+import { themes, useThemeContext } from '@shared/themes';
+import { LazyLightBeamErrorPage } from './lightBeam';
 
 function ErrorPage() {
-  const classes = useGetThemeClasses({
-    lightBeam,
-  });
+  const { id } = useThemeContext();
 
-  const error = useErrorContext();
+  switch (id) {
+    case themes.lightBeam.id:
+      return <LazyLightBeamErrorPage />;
 
-  if (!error) {
-    return null;
+    default:
+      return null;
   }
-
-  const customError = convertToCustomError(error);
-  const { title, message } = getErrorText(customError);
-
-  return (
-    <section className={classes.errorPage}>
-      <header>
-        <h1>{title}</h1>
-      </header>
-
-      {message ? <p>{message}</p> : null}
-
-      <Button
-        onClick={() => {
-          // eslint-disable-next-line no-restricted-globals
-          location.reload();
-        }}
-      >
-        Refresh
-      </Button>
-    </section>
-  );
 }
 
-export default ErrorPage;
+export { ErrorPage };
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

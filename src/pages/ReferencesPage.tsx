@@ -1,27 +1,18 @@
-import { ComingSoon } from '@shared/themes/lightBeam/ui';
-import { useGetThemeClasses } from '@shared/themes';
-import lightBeam from './referencePage.theLine.module.scss';
+import { themes, useThemeContext } from '@shared/themes';
+import { LazyLightBeamReferencesPage } from './lightBeam';
 
 function ReferencesPage() {
-  const classes = useGetThemeClasses({
-    lightBeam,
-  });
+  const { id } = useThemeContext();
 
-  return (
-    <section className={classes.referencePage}>
-      <header>
-        <h2>References page</h2>
+  switch (id) {
+    case themes.lightBeam.id:
+      return <LazyLightBeamReferencesPage />;
 
-        <p style={{ fontWeight: 'bold' }}>Test</p>
-      </header>
-
-      <div>
-        <ComingSoon />
-      </div>
-    </section>
-  );
+    default:
+      return null;
+  }
 }
 
-export default ReferencesPage;
+export { ReferencesPage };
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

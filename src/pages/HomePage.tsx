@@ -1,28 +1,18 @@
-import { useGetThemeClasses } from '@shared/themes';
-// TODO: #1 modify import from theme
-import { Button } from '@shared/themes/lightBeam/ui/Button';
-import lightBeam from './homePage.theLine.module.scss';
+import { themes, useThemeContext } from '@shared/themes';
+import { LazyLightBeamHomePage } from './lightBeam';
 
 function HomePage() {
-  const classes = useGetThemeClasses({
-    lightBeam,
-  });
+  const { id } = useThemeContext();
 
-  return (
-    <section className={classes.homePage}>
-      <header>
-        <h2>Hello!</h2>
-      </header>
+  switch (id) {
+    case themes.lightBeam.id:
+      return <LazyLightBeamHomePage />;
 
-      <p>
-        I'm Sándor Szilágyi, a full stack developer and this is my portfolio.
-      </p>
-
-      <Button>Check out my themes</Button>
-    </section>
-  );
+    default:
+      return null;
+  }
 }
 
-export default HomePage;
+export { HomePage };
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

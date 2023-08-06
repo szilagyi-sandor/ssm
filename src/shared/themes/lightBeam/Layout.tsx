@@ -1,6 +1,6 @@
 import { PropsWithChildren, useState } from 'react';
 import { ScrollRestoration, useLocation } from 'react-router-dom';
-import { LazyErrorPage } from '@pages';
+import { ErrorPage } from '@pages';
 import { ErrorBoundary } from '../../error';
 import { MainMenu, LightBeam, LoadingIndicator } from './ui';
 import { CustomSuspense, useSmoothStateSwitcher } from '../../helpers';
@@ -39,17 +39,18 @@ function Layout({ children }: PropsWithChildren) {
           <LightBeam errorBoundaryActive={errorBoundaryActive} />
 
           <main>
-            <ErrorBoundary
-              fallback={<LazyErrorPage />}
-              onCatch={() => setErrorBoundaryActive(true)}
-              onUnmount={() => setErrorBoundaryActive(false)}
-            >
-              <CustomSuspense setSuspense={setSuspenseActive}>
+            <CustomSuspense setSuspense={setSuspenseActive}>
+              <ErrorBoundary
+                key={pathname}
+                fallback={<ErrorPage />}
+                onCatch={() => setErrorBoundaryActive(true)}
+                onUnmount={() => setErrorBoundaryActive(false)}
+              >
                 <div className={classes.pageContainer} key={pathname}>
                   {children}
                 </div>
-              </CustomSuspense>
-            </ErrorBoundary>
+              </ErrorBoundary>
+            </CustomSuspense>
           </main>
 
           <footer>

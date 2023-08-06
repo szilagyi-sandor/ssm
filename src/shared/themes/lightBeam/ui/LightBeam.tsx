@@ -7,8 +7,8 @@ type Props = {
   errorBoundaryActive: boolean;
 };
 
-// the grid and lightBeam are
-// different components so z-index is easier to manage
+// the grid and the lightBeam are
+// different elements so z-index is easier to manage
 function LightBeam({ errorBoundaryActive }: Props) {
   const loading = useSmoothLoadingContext();
   const stage = useLightBeamStageContext();

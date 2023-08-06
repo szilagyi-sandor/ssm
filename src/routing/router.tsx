@@ -8,10 +8,10 @@ import {
   notFoundError,
 } from '@shared/error';
 import {
-  LazyHomePage,
-  LazySandboxPage,
-  LazyReferencesPage,
-  LazyTechnologiesPage,
+  HomePage,
+  SandboxPage,
+  ReferencesPage,
+  TechnologiesPage,
 } from '@pages';
 
 export const router = createBrowserRouter([
@@ -27,19 +27,19 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <LazyHomePage />,
+        element: <HomePage />,
       },
       {
         path: routes.sandbox,
-        element: <LazySandboxPage />,
+        element: <SandboxPage />,
       },
       {
         path: routes.references,
-        element: <LazyReferencesPage />,
+        element: <ReferencesPage />,
       },
       {
         path: routes.technologies,
-        element: <LazyTechnologiesPage />,
+        element: <TechnologiesPage />,
       },
       {
         path: '*',
