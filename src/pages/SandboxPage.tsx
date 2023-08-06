@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useSmoothStateSwitcher } from '@shared/helpers';
-import { useGetThemeClasses } from '@shared/themes';
-import theLineClasses from './sandboxPage.theLine.module.scss';
+import { ThemeChanger, useGetThemeClasses } from '@shared/themes';
+import lightBeam from './sandboxPage.theLine.module.scss';
 
 function SandboxPage() {
   const classes = useGetThemeClasses({
-    theLineClasses,
+    lightBeam,
   });
 
   const [count, setCount] = useState(0);
@@ -25,6 +25,8 @@ function SandboxPage() {
       </button>
 
       <div>delayed count is: {delayedState}</div>
+
+      <ThemeChanger />
     </section>
   );
 }

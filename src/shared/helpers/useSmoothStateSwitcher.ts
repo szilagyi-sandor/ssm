@@ -21,7 +21,7 @@ export const useSmoothStateSwitcher = <T>(
   // if pending state is not empty the timer will set the state to it, clear it then
   // call itself again so the readyToSwitch can be set to true if the pending state remains empty.
   const handleTimeout = useCallback(() => {
-    timeoutRef.current = restartTimeout(() => {
+    restartTimeout(() => {
       if (pendingState.current !== undefined) {
         setState(pendingState.current);
         pendingState.current = undefined;
@@ -30,7 +30,7 @@ export const useSmoothStateSwitcher = <T>(
         readyToSwitch.current = true;
       }
     }, timeout);
-  }, [timeout, restartTimeout, timeoutRef]);
+  }, [timeout, restartTimeout]);
 
   useEffect(() => {
     if (isFirstEffect.current) {
@@ -64,4 +64,4 @@ export const useSmoothStateSwitcher = <T>(
   return state;
 };
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

@@ -4,15 +4,12 @@ export type Theme = {
 };
 
 export const themes = {
-  theLine: { id: 1, name: 'The line' },
-  shapes: { id: 2, name: 'Shapes' },
+  lightBeam: { id: 1, name: 'Light beam' },
+  triangles: { id: 2, name: 'Triangles' },
 };
 
 export type ThemeKey = keyof typeof themes;
 
-export type ThemeClasses = {
-  theLineClasses?: CSSModuleClasses;
-  shapesClasses?: CSSModuleClasses;
-};
+export type ThemeClasses = Record<ThemeKey, CSSModuleClasses>;
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

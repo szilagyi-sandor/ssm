@@ -1,4 +1,3 @@
-// prettier.config.js or .prettierrc.js
 module.exports = {
   trailingComma: 'es5',
   tabWidth: 2,
@@ -7,4 +6,4 @@ module.exports = {
   endOfLine: 'auto',
 };
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

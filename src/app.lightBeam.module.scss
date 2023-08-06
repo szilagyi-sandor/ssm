@@ -1,12 +1,9 @@
-@import './assets/styles/variables.theLine.scss';
-
-// TODO: #1 move theme specific stuff from here
+@import './assets/styles/lightBeam/variables.scss';
 
 .app {
   color: $white;
-  min-height: 100vh;
-  background-color: $black-300;
   font-family: $font;
+  background-color: $black-300;
 
   h1,
   h2,
@@ -47,4 +44,4 @@
   }
 }
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

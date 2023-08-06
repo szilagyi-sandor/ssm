@@ -4,24 +4,22 @@
   z-index: 110;
   position: fixed;
 
-  .indicator {
-    .text {
-      animation: appear 320ms linear;
+  .text {
+    animation: appear 320ms linear;
 
-      .dot {
-        opacity: 0;
+    .dot {
+      opacity: 0;
 
-        &:first-child {
-          animation: dot-appear-1 1500ms linear infinite 320ms;
-        }
+      &:first-child {
+        animation: dot-appear-1 1500ms linear infinite 320ms;
+      }
 
-        &:nth-child(2) {
-          animation: dot-appear-2 1500ms linear infinite 320ms;
-        }
+      &:nth-child(2) {
+        animation: dot-appear-2 1500ms linear infinite 320ms;
+      }
 
-        &:last-child {
-          animation: dot-appear-3 1500ms linear infinite 320ms;
-        }
+      &:last-child {
+        animation: dot-appear-3 1500ms linear infinite 320ms;
       }
     }
   }
@@ -81,4 +79,4 @@
   }
 }
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

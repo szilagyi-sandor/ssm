@@ -5,4 +5,4 @@ export const routes = {
   technologies: '/technologies',
 };
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

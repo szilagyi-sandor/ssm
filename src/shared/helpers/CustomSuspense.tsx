@@ -50,4 +50,4 @@ function CustomSuspense({
 
 export { CustomSuspense };
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

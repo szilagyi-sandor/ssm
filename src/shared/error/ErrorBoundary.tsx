@@ -2,14 +2,14 @@ import { Component, ErrorInfo, PropsWithChildren, ReactNode } from 'react';
 import { ErrorProvider } from './errorContext';
 
 type Props = {
+  onUnmount?: () => void;
   fallback?: ReactNode | undefined;
   onCatch?: (error: Error, errorInfo: ErrorInfo) => void;
-  onUnmount?: () => void;
 };
 
 type State = {
-  hasError: boolean;
   error?: Error;
+  hasError: boolean;
 };
 
 export class ErrorBoundary extends Component<PropsWithChildren<Props>, State> {
@@ -43,13 +43,15 @@ export class ErrorBoundary extends Component<PropsWithChildren<Props>, State> {
     const { children, fallback } = this.props;
 
     if (hasError) {
-      return fallback !== undefined ? (
-        <ErrorProvider value={error}>{fallback}</ErrorProvider>
-      ) : null;
+      if (fallback === undefined) {
+        return null;
+      }
+
+      return <ErrorProvider value={error}>{fallback}</ErrorProvider>;
     }
 
     return children;
   }
 }
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

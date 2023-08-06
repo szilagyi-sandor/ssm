@@ -1,11 +1,10 @@
-import { useGetThemeClasses } from '../themes';
 import { errorTexts } from './errorTexts';
-// TODO: #1 remove:
-import theLineClasses from './rootError.theLine.module.scss';
+import { useGetThemeClasses } from '../themes';
+import lightBeam from './rootError.lightBeam.module.scss';
 
 function RootError() {
   const classes = useGetThemeClasses({
-    theLineClasses,
+    lightBeam,
   });
 
   const { title, message } = errorTexts.default;
@@ -23,4 +22,4 @@ function RootError() {
 
 export { RootError };
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

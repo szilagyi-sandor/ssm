@@ -1,6 +1,5 @@
-@import '/src/assets/styles/mixins.theLine.scss';
-@import '/src/assets/styles/variables.theLine.scss';
-// TODO: every loading should last at least a few seconds
+@import '/src/assets/styles/lightBeam/mixins.scss';
+@import '/src/assets/styles/lightBeam/variables.scss';
 
 @property --beforeColor {
   syntax: '<color>';
@@ -8,10 +7,10 @@
   inherits: false;
 }
 
-.theLineWrapper {
+.lightBeamWrapper {
   animation: appear 640ms linear;
 
-  .theLine {
+  .lightBeam {
     top: 0px;
     width: 3px;
     right: 25%;
@@ -19,10 +18,12 @@
     z-index: 10000;
     position: fixed;
     background-color: $white;
+
     transition-property: box-shadow;
-    transition-duration: $lineTransitionDuration;
+    transition-duration: $transitionDuration;
+    transition-timing-function: $transitionTimingFunction;
+
     animation: scale 3s linear infinite 0s alternate;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
     &:before {
       top: 0px;
@@ -34,19 +35,21 @@
       display: block;
       position: absolute;
       background-color: $white;
-      transition-duration: $lineTransitionDuration;
-      transition-property: --beforeColor;
-      animation: pass-through 3s linear infinite;
       background: linear-gradient(
         0deg,
         transparent 0%,
         var(--beforeColor) 50%,
         transparent 100%
       );
+
+      transition-duration: $transitionDuration;
+      transition-property: --beforeColor;
+
+      animation: pass-through 3s linear infinite;
     }
 
     &.stage-0 {
-      @include line-box-shadow($emerald-400, $emerald-500);
+      @include light-beam-box-shadow($emerald-400, $emerald-500);
 
       &:before {
         --beforeColor: #{$emerald-400};
@@ -54,7 +57,7 @@
     }
 
     &.stage-1 {
-      @include line-box-shadow($sky-400, $sky-500);
+      @include light-beam-box-shadow($sky-400, $sky-500);
 
       &:before {
         --beforeColor: #{$sky-400};
@@ -62,7 +65,7 @@
     }
 
     &.error {
-      @include line-box-shadow($red-500, $red-600);
+      @include light-beam-box-shadow($red-500, $red-600);
 
       &:before {
         --beforeColor: #{$red-500};
@@ -70,7 +73,7 @@
     }
 
     &.loading {
-      @include line-box-shadow($yellow-300, $yellow-400);
+      @include light-beam-box-shadow($yellow-300, $yellow-400);
 
       &:before {
         --beforeColor: #{$yellow-300};
@@ -129,4 +132,4 @@
   }
 }
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

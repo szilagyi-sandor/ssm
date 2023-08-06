@@ -1,6 +1,6 @@
 # Rules
 
-## Version 0.2
+## Version 0.2.1
 
 - architecture is based on features - `"what is used together must coexist together"`
 - it is forbidden to use a directory based on file type (components, adapters, models, ...)
@@ -21,7 +21,7 @@
 - use types over interfaces where possible and convenient
 
 - use PascalCase for components. Ex. `Component.tsx`
-- use camelCase for folders, ts files , media files, styles
+- use camelCase for folders, ts files , media files, styles, fonts
 
 - use normal (non-arrow) functions for components
 - use arrow functions when convenient
@@ -33,4 +33,9 @@
 - add comments if it's justified
 - comments start with small letters, even if it consists of sentences
 
-## Version 0.1.0
+## Steps 0.2.2
+
+- check index.js files []
+- check imports []
+
+TODO: finish the steps

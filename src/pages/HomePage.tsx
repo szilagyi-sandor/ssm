@@ -1,10 +1,11 @@
-import { Button } from '@shared/ui';
 import { useGetThemeClasses } from '@shared/themes';
-import theLineClasses from './homePage.theLine.module.scss';
+// TODO: #1 modify import from theme
+import { Button } from '@shared/themes/lightBeam/ui/Button';
+import lightBeam from './homePage.theLine.module.scss';
 
 function HomePage() {
   const classes = useGetThemeClasses({
-    theLineClasses,
+    lightBeam,
   });
 
   return (

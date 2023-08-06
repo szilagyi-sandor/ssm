@@ -29,4 +29,4 @@ function ThemeChanger() {
 
 export { ThemeChanger };
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

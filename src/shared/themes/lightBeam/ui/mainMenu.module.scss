@@ -1,0 +1,68 @@
+@import '/src/assets/styles/lightBeam/mixins.scss';
+@import '/src/assets/styles/lightBeam/variables.scss';
+
+.mainMenu {
+  .content {
+    @include container;
+
+    display: flex;
+    align-items: center;
+
+    h1 {
+      a {
+        color: $white;
+        padding: 16px 0;
+        font-size: 3rem;
+        font-weight: 400;
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+
+        transition-property: color;
+        transition-duration: $transitionDuration;
+        transition-timing-function: $transitionTimingFunction;
+      }
+    }
+
+    nav {
+      ul {
+        display: flex;
+        list-style-type: none;
+
+        li {
+          a {
+            padding: 16px;
+            color: $white;
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+
+  &.stage-0 {
+    h1 a {
+      color: $emerald-500;
+    }
+  }
+
+  &.stage-1 {
+    h1 a {
+      color: $sky-500;
+    }
+  }
+
+  &.loading {
+    h1 a {
+      color: $yellow-300;
+    }
+  }
+
+  &.error {
+    h1 a {
+      color: $red-500;
+    }
+  }
+}
+
+// CHECKED 0.2.1

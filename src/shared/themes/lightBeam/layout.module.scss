@@ -1,7 +1,8 @@
-@import '/src/assets/styles/mixins.theLine.scss';
-@import '/src/assets/styles/variables.theLine.scss';
+@import '/src/assets/styles/lightBeam/mixins.scss';
+@import '/src/assets/styles/lightBeam/variables.scss';
 
 .layout {
+  opacity: 1;
   color: $white;
   display: flex;
   min-height: 100vh;
@@ -9,6 +10,7 @@
   background-color: $black-300;
 
   main {
+    opacity: 1;
     flex-grow: 1;
 
     .pageContainer {
@@ -32,4 +34,4 @@
   }
 }
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

@@ -1,21 +1,19 @@
 import { ThemeClasses, themes } from './domain';
 
-// TODO: #1 will not be needed
-
 export const getThemeClasses = (
   currentThemeId: number,
   themeClasses: Partial<ThemeClasses>
 ): CSSModuleClasses => {
   switch (currentThemeId) {
-    case themes.theLine.id:
-      return themeClasses.theLineClasses || {};
+    case themes.lightBeam.id:
+      return themeClasses.lightBeam || {};
 
-    case themes.shapes.id:
-      return themeClasses.shapesClasses || {};
+    case themes.triangles.id:
+      return themeClasses.triangles || {};
 
     default:
       return {};
   }
 };
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

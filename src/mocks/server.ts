@@ -4,4 +4,4 @@ import { handlers } from './handlers';
 
 export const server = setupServer(...handlers);
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

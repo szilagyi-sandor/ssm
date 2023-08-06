@@ -1,10 +1,10 @@
-import { ComingSoon } from '@shared/ui';
+import { ComingSoon } from '@shared/themes/lightBeam/ui';
 import { useGetThemeClasses } from '@shared/themes';
-import theLineClasses from './technologiesPage.theLine.module.scss';
+import lightBeam from './technologiesPage.theLine.module.scss';
 
 function TechnologiesPage() {
   const classes = useGetThemeClasses({
-    theLineClasses,
+    lightBeam,
   });
 
   return (

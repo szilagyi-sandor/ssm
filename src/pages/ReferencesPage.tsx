@@ -1,16 +1,18 @@
-import { ComingSoon } from '@shared/ui';
+import { ComingSoon } from '@shared/themes/lightBeam/ui';
 import { useGetThemeClasses } from '@shared/themes';
-import theLineClasses from './referencePage.theLine.module.scss';
+import lightBeam from './referencePage.theLine.module.scss';
 
 function ReferencesPage() {
   const classes = useGetThemeClasses({
-    theLineClasses,
+    lightBeam,
   });
 
   return (
     <section className={classes.referencePage}>
       <header>
         <h2>References page</h2>
+
+        <p style={{ fontWeight: 'bold' }}>Test</p>
       </header>
 
       <div>

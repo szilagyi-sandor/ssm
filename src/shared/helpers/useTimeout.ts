@@ -3,17 +3,6 @@ import { useCallback, useEffect, useRef } from 'react';
 export const useTimeout = () => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const restartTimeout = useCallback(
-    (callback: () => void, timeout: number) => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-
-      return setTimeout(callback, timeout);
-    },
-    []
-  );
-
   useEffect(() => {
     return () => {
       if (timeoutRef.current) {
@@ -26,7 +15,27 @@ export const useTimeout = () => {
     };
   }, []);
 
-  return { timeoutRef, restartTimeout };
+  const restartTimeout = useCallback(
+    (callback: () => void, timeout: number) => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+
+      timeoutRef.current = setTimeout(callback, timeout);
+
+      return timeoutRef.current;
+    },
+    []
+  );
+
+  const clear = useCallback(() => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  }, []);
+
+  return { timeoutRef, restartTimeout, clear };
 };
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

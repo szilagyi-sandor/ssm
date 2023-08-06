@@ -8,7 +8,7 @@ export const getTheme = () => {
   }
 
   // TODO: #1 should come from appsettings
-  return themes.theLine;
+  return themes.lightBeam;
 };
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

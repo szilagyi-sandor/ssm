@@ -1,15 +1,16 @@
-import { Button } from '@shared/ui';
 import { useGetThemeClasses } from '@shared/themes';
 import {
   getErrorText,
   useErrorContext,
   convertToCustomError,
 } from '@shared/error';
-import theLineClasses from './errorPage.theLine.module.scss';
+// TODO: #1 update this import
+import { Button } from '@shared/themes/lightBeam/ui/Button';
+import lightBeam from './errorPage.theLine.module.scss';
 
 function ErrorPage() {
   const classes = useGetThemeClasses({
-    theLineClasses,
+    lightBeam,
   });
 
   const error = useErrorContext();

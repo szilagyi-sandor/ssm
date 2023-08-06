@@ -1,4 +1,4 @@
-@import '/src/assets/styles/variables.theLine.scss';
+@import '/src/assets/styles/lightBeam/variables.scss';
 
 .button[type='button'],
 .button {
@@ -11,8 +11,8 @@
   border-radius: 32px;
   font-family: $headingFont;
   transition-property: background-color, color;
-  transition-duration: $lineTransitionDuration;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: $transitionDuration;
+  transition-timing-function: $transitionTimingFunction;
 
   &.stage-0 {
     background-color: $emerald-500;
@@ -32,4 +32,4 @@
   }
 }
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

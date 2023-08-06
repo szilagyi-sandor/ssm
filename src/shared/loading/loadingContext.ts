@@ -6,4 +6,4 @@ export const LoadingProvider = loadingContext.Provider;
 
 export const useLoadingContext = () => useContext(loadingContext);
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

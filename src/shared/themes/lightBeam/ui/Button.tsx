@@ -1,13 +1,10 @@
 /* eslint-disable react/button-has-type */
 import { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 import classNames from 'classnames';
-import { useErrorContext } from '../error';
-import { useGetThemeClasses } from '../themes';
-import { useLoadingContext } from '../loading';
-import { useStageContext } from '../themes/theLine';
-import theLineClasses from './button.theLine.module.scss';
-
-// TODO: #1 remove theme related things
+import { useLightBeamStageContext } from '..';
+import { useErrorContext } from '../../../error';
+import { useSmoothLoadingContext } from '../../../loading';
+import classes from './button.module.scss';
 
 function Button({
   children,
@@ -15,13 +12,9 @@ function Button({
   className,
   ...rest
 }: PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>) {
-  const classes = useGetThemeClasses({
-    theLineClasses,
-  });
-
-  const stage = useStageContext();
   const error = !!useErrorContext();
-  const loading = useLoadingContext();
+  const stage = useLightBeamStageContext();
+  const loading = useSmoothLoadingContext();
   const available = !error && !loading;
 
   return (
@@ -42,4 +35,4 @@ function Button({
 
 export { Button };
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1

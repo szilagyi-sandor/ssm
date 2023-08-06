@@ -1,5 +1,5 @@
 import { Outlet, createBrowserRouter } from 'react-router-dom';
-import { Layout } from '@shared/ui';
+import { Layout } from '@shared/Layout';
 import { routes } from '@shared/constants';
 import {
   RootError,
@@ -49,4 +49,4 @@ export const router = createBrowserRouter([
   },
 ]);
 
-// CHECKED 0.2.0
+// CHECKED 0.2.1
