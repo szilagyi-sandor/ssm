@@ -16,7 +16,7 @@ function ThemeChanger() {
 
           return (
             <li key={key}>
-              <button onClick={() => setTheme(theme)} type="button">
+              <button onClick={() => setTheme(theme.id)} type="button">
                 {theme.name}
               </button>
             </li>

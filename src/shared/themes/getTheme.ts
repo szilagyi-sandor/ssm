@@ -1,13 +1,23 @@
 import { themes } from './domain';
+import { getThemeById } from './getThemeById';
 
-export const getTheme = () => {
-  const storageTheme = localStorage.getItem('theme');
+export const getTheme = (defaultThemeId?: number) => {
+  const storageThemeId = localStorage.getItem('themeId');
 
-  if (storageTheme) {
-    return JSON.parse(storageTheme);
+  if (storageThemeId && Number.isSafeInteger(+storageThemeId)) {
+    const selectedTheme = getThemeById(+storageThemeId);
+
+    if (selectedTheme) {
+      return selectedTheme;
+    }
   }
 
-  // TODO: #1 should come from appsettings
+  const defaultTheme = getThemeById(defaultThemeId);
+
+  if (defaultTheme) {
+    return defaultTheme;
+  }
+
   return themes.lightBeam;
 };
 
