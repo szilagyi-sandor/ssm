@@ -1,0 +1,21 @@
+@import '/src/assets/styles/triangles/variables.scss';
+
+.rootError {
+  color: $black;
+  display: flex;
+  min-height: 100vh;
+  font-family: $font;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $white;
+
+  h1 {
+    font-size: 4rem;
+    font-weight: 500;
+    font-family: $headingFont;
+    margin-bottom: 0.5em;
+  }
+}
+
+// CHECKED 0.2.1

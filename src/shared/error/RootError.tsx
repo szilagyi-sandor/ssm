@@ -1,10 +1,12 @@
 import { errorTexts } from './errorTexts';
 import { useGetThemeClasses } from '../themes';
 import lightBeam from './rootError.lightBeam.module.scss';
+import triangles from './rootError.triangles.module.scss';
 
 function RootError() {
   const classes = useGetThemeClasses({
     lightBeam,
+    triangles,
   });
 
   const { title, message } = errorTexts.default;

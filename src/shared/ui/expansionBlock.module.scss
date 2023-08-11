@@ -1,0 +1,37 @@
+.expansionBlock {
+  &.start {
+    height: 0px;
+    overflow: hidden;
+  }
+
+  &.startInit {
+    height: 0px;
+    overflow: hidden;
+  }
+
+  &.startTransitioning {
+    overflow: hidden;
+  }
+
+  &.end {
+    height: auto;
+  }
+
+  &.endInit {
+    overflow: hidden;
+  }
+
+  &.endTransitioning {
+    height: 0px;
+    overflow: hidden;
+  }
+
+  &.startInit,
+  &.startTransitioning,
+  &.endInit,
+  &.endTransitioning {
+    transition: height 320ms linear;
+  }
+}
+
+// CHECKED 0.2.1

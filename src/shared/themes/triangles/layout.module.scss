@@ -1,24 +1,17 @@
-@import '/src/assets/styles/lightBeam/mixins.scss';
-@import '/src/assets/styles/lightBeam/variables.scss';
+@import '/src/assets/styles/triangles/variables.scss';
 
 .layout {
-  color: $white;
+  color: $black;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-color: $black-300;
+  background-color: $white;
 
   main {
     flex-grow: 1;
 
     .pageContainer {
       animation: appear 320ms linear;
-    }
-  }
-
-  footer {
-    .footerContent {
-      @include container;
     }
   }
 }

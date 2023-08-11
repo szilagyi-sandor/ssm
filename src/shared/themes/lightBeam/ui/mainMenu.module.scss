@@ -19,8 +19,8 @@
         text-decoration: none;
 
         transition-property: color;
-        transition-duration: $transitionDuration;
-        transition-timing-function: $transitionTimingFunction;
+        transition-duration: $beamTransitionDuration;
+        transition-timing-function: $beamTransitionTimingFunction;
       }
     }
 

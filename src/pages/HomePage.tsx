@@ -1,5 +1,6 @@
 import { themes, useThemeContext } from '@shared/themes';
 import { LazyLightBeamHomePage } from './lightBeam';
+import { LazyTrianglesHomePage } from './triangles';
 
 function HomePage() {
   const { id } = useThemeContext();
@@ -7,6 +8,9 @@ function HomePage() {
   switch (id) {
     case themes.lightBeam.id:
       return <LazyLightBeamHomePage />;
+
+    case themes.triangles.id:
+      return <LazyTrianglesHomePage />;
 
     default:
       return null;

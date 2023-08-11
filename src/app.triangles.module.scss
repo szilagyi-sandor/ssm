@@ -1,9 +1,9 @@
-@import './assets/styles/lightBeam/variables.scss';
+@import './assets/styles/triangles/variables.scss';
 
 .app {
-  color: $white;
+  color: $black;
   font-family: $font;
-  background-color: $black-300;
+  background-color: $white;
 
   h1,
   h2,

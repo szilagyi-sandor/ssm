@@ -2,6 +2,66 @@
 
 .sandboxPage {
   @include container;
+
+  // TODO: remove
+  .testContainer {
+    width: 600px;
+    height: 600px;
+    border: 1px solid red;
+    position: relative;
+
+    .testLine {
+      position: absolute;
+      right: 100px;
+      top: -10px;
+      bottom: -10px;
+      width: 4px;
+      background-color: red;
+
+      &.start {
+        top: -10px;
+        bottom: calc(100% + 10px);
+      }
+
+      &.startInit {
+        top: -10px;
+        bottom: calc(100% + 10px);
+      }
+
+      &.startTransitioning {
+        top: -10px;
+        bottom: -10px;
+      }
+
+      &.end {
+        top: -10px;
+        bottom: -10px;
+      }
+
+      &.endInit {
+        top: -10px;
+        bottom: -10px;
+      }
+
+      &.endTransitioning {
+        top: calc(100% + 10px);
+        bottom: -10px;
+      }
+
+      // the 2 transitions below could be put together as long as they both have 400ms duration.
+      // if one of them would have bigger duration, then this is the right way to do it, because
+      // the transition detector would get the right max properties.
+      &.startInit,
+      &.startTransitioning,
+      &.endInit {
+        transition: bottom 400ms linear;
+      }
+
+      &.endTransitioning {
+        transition: top 400ms linear;
+      }
+    }
+  }
 }
 
 // CHECKED 0.2.1

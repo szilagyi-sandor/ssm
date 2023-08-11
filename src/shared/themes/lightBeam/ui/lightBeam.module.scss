@@ -1,6 +1,11 @@
 @import '/src/assets/styles/lightBeam/mixins.scss';
 @import '/src/assets/styles/lightBeam/variables.scss';
 
+// TODO: #1
+// - lightBeam: beam comes in (+overflow hidden), squares fade in, page overlay fades out -> pure css
+
+$shadowLength: 12px;
+
 @property --beforeColor {
   syntax: '<color>';
   initial-value: #fff;
@@ -11,17 +16,21 @@
   animation: appear 640ms linear;
 
   .lightBeam {
-    top: 0px;
+    // TODO: #1
+    // bottom: calc(100% + $shadowLength);
+    bottom: -$shadowLength;
+    top: -$shadowLength;
+    // top: calc(100% + $shadowLength);
+
     width: 3px;
     right: 25%;
-    bottom: 0px;
     z-index: 10000;
     position: fixed;
+    overflow: hidden;
     background-color: $white;
 
-    transition-property: box-shadow;
-    transition-duration: $transitionDuration;
-    transition-timing-function: $transitionTimingFunction;
+    transition: box-shadow $beamTransitionDuration $beamTransitionTimingFunction,
+      top 400ms linear, bottom 400ms linear;
 
     animation: scale 3s linear infinite 0s alternate;
 
@@ -42,7 +51,7 @@
         transparent 100%
       );
 
-      transition-duration: $transitionDuration;
+      transition-duration: $beamTransitionDuration;
       transition-property: --beforeColor;
 
       animation: pass-through 3s linear infinite;

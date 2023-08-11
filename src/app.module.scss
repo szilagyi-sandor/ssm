@@ -1,0 +1,8 @@
+// TODO: #1 check transition override with theme
+.app {
+  transition-duration: 320ms;
+  transition-timing-function: linear;
+  transition-property: background-color, color;
+}
+
+// CHECKED 0.2.1

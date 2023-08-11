@@ -6,8 +6,6 @@ function ReferencesPage() {
     <section className={classes.referencePage}>
       <header>
         <h2>References page</h2>
-
-        <p>Test</p>
       </header>
 
       <ComingSoon />

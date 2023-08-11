@@ -11,8 +11,8 @@
   border-radius: 32px;
   font-family: $headingFont;
   transition-property: background-color, color;
-  transition-duration: $transitionDuration;
-  transition-timing-function: $transitionTimingFunction;
+  transition-duration: $beamTransitionDuration;
+  transition-timing-function: $beamTransitionTimingFunction;
 
   &.stage-0 {
     background-color: $emerald-500;
