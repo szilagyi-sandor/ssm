@@ -55,15 +55,33 @@ export const getMaxProperties = (
 
 // this helps get the longest transitions on an html element.
 // useful to detect onTransitionEnd for the last transition.
-export const getMaxTransitionProperties = (el: HTMLElement) => {
+export const getMaxTransitionProperties = (
+  el: HTMLElement,
+  skips?: string[]
+) => {
   const style = window.getComputedStyle(el);
-  const properties = style.transitionProperty.split(', ');
+  let properties = style.transitionProperty.split(', ');
   const delays = getTransitionStyleValues(style.transitionDelay);
   const durations = getTransitionStyleValues(style.transitionDuration);
 
-  const totals = durations.map((v, i) => {
+  let totals = durations.map((v, i) => {
     return v + delays[i];
   });
+
+  if (skips) {
+    const skipIndexes: number[] = [];
+
+    skips.forEach((skip) => {
+      const skipIndex = properties.findIndex((property) => property === skip);
+
+      if (skipIndex !== -1) {
+        skipIndexes.push(skipIndex);
+      }
+    });
+
+    properties = properties.filter((_, i) => !skipIndexes.includes(i));
+    totals = totals.filter((_, i) => !skipIndexes.includes(i));
+  }
 
   return getMaxProperties(properties, totals);
 };

@@ -7,8 +7,6 @@ import defaultClasses from './app.module.scss';
 import lightBeam from './app.lightBeam.module.scss';
 import triangles from './app.triangles.module.scss';
 
-// TODO: #1 add transition tracker from ITINPT
-
 // TODO: #1 animateIn and out functionality for themes
 // - lightBeam: beam comes in (+overflow hidden), squares fade in, page overlay fades out -> pure css
 // - fadeIn + fadeOut for triangles for now

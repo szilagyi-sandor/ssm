@@ -1,9 +1,6 @@
 @import '/src/assets/styles/lightBeam/mixins.scss';
 @import '/src/assets/styles/lightBeam/variables.scss';
 
-// TODO: #1
-// - lightBeam: beam comes in (+overflow hidden), squares fade in, page overlay fades out -> pure css
-
 $shadowLength: 12px;
 
 @property --beforeColor {
@@ -13,26 +10,17 @@ $shadowLength: 12px;
 }
 
 .lightBeamWrapper {
-  animation: appear 640ms linear;
-
   .lightBeam {
-    // TODO: #1
-    // bottom: calc(100% + $shadowLength);
-    bottom: -$shadowLength;
-    top: -$shadowLength;
-    // top: calc(100% + $shadowLength);
-
     width: 3px;
     right: 25%;
     z-index: 10000;
     position: fixed;
     overflow: hidden;
+    top: -$shadowLength;
+    bottom: -$shadowLength;
     background-color: $white;
-
-    transition: box-shadow $beamTransitionDuration $beamTransitionTimingFunction,
-      top 400ms linear, bottom 400ms linear;
-
     animation: scale 3s linear infinite 0s alternate;
+    transition: box-shadow $beamTransitionDuration $beamTransitionTimingFunction;
 
     &:before {
       top: 0px;
@@ -88,15 +76,63 @@ $shadowLength: 12px;
         --beforeColor: #{$yellow-300};
       }
     }
+
+    &.start {
+      top: -$shadowLength;
+      bottom: calc(100% + $shadowLength);
+    }
+
+    &.startInit {
+      top: -$shadowLength;
+      bottom: calc(100% + $shadowLength);
+    }
+
+    &.startTransitioning {
+      top: -$shadowLength;
+      bottom: -$shadowLength;
+    }
+
+    &.end {
+      top: -$shadowLength;
+      bottom: -$shadowLength;
+    }
+
+    &.endInit {
+      top: --$shadowLength;
+      bottom: -$shadowLength;
+    }
+
+    &.endTransitioning {
+      top: calc(100% + $shadowLength);
+      bottom: -$shadowLength;
+    }
+
+    // the 2 transitions below could be put together as long as they both have 400ms duration.
+    // if one of them would have bigger duration, then this is the right way to do it, because
+    // the transition detector would get the right max properties.
+    &.startInit,
+    &.startTransitioning,
+    &.endInit {
+      transition: box-shadow $beamTransitionDuration
+          $beamTransitionTimingFunction,
+        bottom 400ms linear 100ms;
+    }
+
+    &.endTransitioning {
+      transition: box-shadow $beamTransitionDuration
+          $beamTransitionTimingFunction,
+        top 400ms linear 100ms;
+    }
   }
 
   .grid {
     top: 0px;
     width: 25%;
-    z-index: 0;
+    z-index: 1;
     bottom: 0px;
     right: 12.5%;
     position: fixed;
+    pointer-events: none;
     background-size: 40px 40px;
     mask-image: linear-gradient(90deg, transparent, $black-300, transparent);
     -webkit-mask-image: linear-gradient(
@@ -111,6 +147,21 @@ $shadowLength: 12px;
         transparent 1px
       ),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+
+    opacity: 0;
+    animation: appear 300ms linear 600ms 1 forwards;
+  }
+
+  .overlay {
+    top: 0px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    position: fixed;
+    background: $black-300;
+
+    animation: disappear 400ms linear 1100ms forwards;
   }
 }
 
@@ -120,6 +171,16 @@ $shadowLength: 12px;
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
   }
 }
 

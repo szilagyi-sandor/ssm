@@ -13,6 +13,7 @@ type Param = {
   timeout: number;
   mountAnimation?: boolean;
   detectLastTransition?: boolean;
+  skippedTransitionProperties?: string[];
 };
 
 // TODO: add to BLC
@@ -21,6 +22,7 @@ export const useTransitionTracker = <T extends HTMLElement>({
   timeout,
   mountAnimation,
   detectLastTransition,
+  skippedTransitionProperties,
 }: Param) => {
   const ref = useRef<T>(null);
   const skippingEffectRef = useRef(!mountAnimation);
@@ -71,7 +73,10 @@ export const useTransitionTracker = <T extends HTMLElement>({
   const onTransitionEnd = useCallback(
     (e: React.TransitionEvent<HTMLElement>) => {
       if (detectLastTransition) {
-        const maxTransitionProps = getMaxTransitionProperties(e.currentTarget);
+        const maxTransitionProps = getMaxTransitionProperties(
+          e.currentTarget,
+          skippedTransitionProperties
+        );
 
         if (maxTransitionProps.includes(e.propertyName)) {
           clear();
@@ -87,7 +92,7 @@ export const useTransitionTracker = <T extends HTMLElement>({
         }
       }
     },
-    [detectLastTransition, clear]
+    [detectLastTransition, clear, skippedTransitionProperties]
   );
 
   return {

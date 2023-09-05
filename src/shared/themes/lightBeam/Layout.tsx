@@ -1,9 +1,14 @@
-import { PropsWithChildren, useState } from 'react';
+import { PropsWithChildren, useEffect, useState } from 'react';
 import { ScrollRestoration, useLocation } from 'react-router-dom';
 import { ErrorPage } from '@pages';
 import { ErrorBoundary } from '../../error';
+import { ANIMATION_IN_DURATION } from './switchConfig';
 import { MainMenu, LightBeam, LoadingIndicator } from './ui';
-import { CustomSuspense, useSmoothStateSwitcher } from '../../helpers';
+import {
+  CustomSuspense,
+  useSmoothStateSwitcher,
+  useTimeout,
+} from '../../helpers';
 import {
   LoadingProvider,
   SmoothLoadingProvider,
@@ -19,12 +24,21 @@ import '@assets/styles/lightBeam/fonts.scss';
 function Layout({ children }: PropsWithChildren) {
   const { pathname } = useLocation();
   const isFontLoading = useFontLoadingContext();
+  const { timeoutRef } = useTimeout();
 
   const [suspenseActive, setSuspenseActive] = useState<boolean>();
   const [errorBoundaryActive, setErrorBoundaryActive] = useState(false);
+  const [animationInLoading, setAnimationInLoading] = useState(true);
 
-  const loading = suspenseActive !== false || isFontLoading;
+  const loading =
+    suspenseActive !== false || isFontLoading || animationInLoading;
   const smoothLoading = useSmoothStateSwitcher(loading);
+
+  useEffect(() => {
+    timeoutRef.current = setTimeout(() => {
+      setAnimationInLoading(false);
+    }, ANIMATION_IN_DURATION);
+  }, [timeoutRef]);
 
   return (
     <LoadingProvider value={loading}>
