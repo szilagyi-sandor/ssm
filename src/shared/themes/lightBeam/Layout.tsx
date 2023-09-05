@@ -16,8 +16,6 @@ import {
 import classes from './layout.module.scss';
 // we are importing theme related fonts at their layout level, but
 // they are only going to start loading when they are rendered somewhere.
-// tested only in chrome.
-// TODO: test in other browsers
 import '@assets/styles/lightBeam/fonts.scss';
 import { themeConfigs } from '../domain';
 

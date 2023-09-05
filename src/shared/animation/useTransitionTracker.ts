@@ -17,7 +17,6 @@ type Param = {
   skippedTransitionProperties?: string[];
 };
 
-// TODO: add to BLC
 export const useTransitionTracker = <T extends HTMLElement>({
   on,
   timeout,

@@ -1,8 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTimeout } from './useTimeout';
 
-// TODO: add tests
-// TODO: add to DLC later
 export const useSmoothStateSwitcher = <T>(
   incomingState: T,
   skipDefaultDelay = false,

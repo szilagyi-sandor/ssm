@@ -1,7 +1,6 @@
 import { ThemeKey, themes } from './domain';
 import { useThemeContext, useSetThemeContext } from './themeContext';
 
-// TODO: make this appear in a drawer
 function ThemeChanger() {
   const { currentThemeId } = useThemeContext();
   const setTheme = useSetThemeContext();

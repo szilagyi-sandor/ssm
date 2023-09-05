@@ -37,5 +37,3 @@
 
 - check index.js files []
 - check imports []
-
-TODO: finish the steps

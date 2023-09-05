@@ -9,7 +9,6 @@ type Props = {
   errorBoundaryActive: boolean;
 };
 
-// TODO: add design
 function MainMenu({ errorBoundaryActive }: Props) {
   const stage = useLightBeamStageContext();
   const loading = useSmoothLoadingContext();
