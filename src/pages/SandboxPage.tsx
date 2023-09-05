@@ -3,9 +3,9 @@ import { LazyLightBeamSandboxPage } from './lightBeam';
 import { LazyTrianglesSandboxPage } from './triangles';
 
 function SandboxPage() {
-  const { id } = useThemeContext();
+  const { currentThemeId } = useThemeContext();
 
-  switch (id) {
+  switch (currentThemeId) {
     case themes.lightBeam.id:
       return <LazyLightBeamSandboxPage />;
 

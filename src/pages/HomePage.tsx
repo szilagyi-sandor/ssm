@@ -3,9 +3,9 @@ import { LazyLightBeamHomePage } from './lightBeam';
 import { LazyTrianglesHomePage } from './triangles';
 
 function HomePage() {
-  const { id } = useThemeContext();
+  const { currentThemeId } = useThemeContext();
 
-  switch (id) {
+  switch (currentThemeId) {
     case themes.lightBeam.id:
       return <LazyLightBeamHomePage />;
 

@@ -27,7 +27,7 @@ const MIN_SWITCH_TIME_SECOND = 10;
 const MAX_SWITCH_TIME_SECOND = 20;
 
 export function LightBeamStageProvider({ children }: PropsWithChildren) {
-  const { id } = useThemeContext();
+  const { currentThemeId } = useThemeContext();
 
   const { restartTimeout, clear } = useTimeout();
   const [stage, setStage] = useState(0);
@@ -40,12 +40,12 @@ export function LightBeamStageProvider({ children }: PropsWithChildren) {
   }, [restartTimeout]);
 
   useEffect(() => {
-    if (id === themes.lightBeam.id) {
+    if (currentThemeId === themes.lightBeam.id) {
       handleTimeout();
     } else {
       clear();
     }
-  }, [handleTimeout, id, clear]);
+  }, [handleTimeout, currentThemeId, clear]);
 
   return (
     <LightBeamStageValueProvider value={stage}>

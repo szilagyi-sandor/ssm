@@ -3,9 +3,9 @@ import { LazyLightBeamReferencesPage } from './lightBeam';
 import { LazyTrianglesReferencesPage } from './triangles';
 
 function ReferencesPage() {
-  const { id } = useThemeContext();
+  const { currentThemeId } = useThemeContext();
 
-  switch (id) {
+  switch (currentThemeId) {
     case themes.lightBeam.id:
       return <LazyLightBeamReferencesPage />;
 

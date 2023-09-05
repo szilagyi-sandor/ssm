@@ -3,9 +3,9 @@ import { LazyLightBeamTechnologiesPage } from './lightBeam';
 import { LazyTrianglesTechnologiesPage } from './triangles';
 
 function TechnologiesPage() {
-  const { id } = useThemeContext();
+  const { currentThemeId } = useThemeContext();
 
-  switch (id) {
+  switch (currentThemeId) {
     case themes.lightBeam.id:
       return <LazyLightBeamTechnologiesPage />;
 

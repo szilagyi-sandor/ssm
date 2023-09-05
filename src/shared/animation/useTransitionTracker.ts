@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import {
-  getMaxTransitionProperties,
-  getNextTransitionState,
-  transitionStates,
-} from '@shared/animation/domain';
 import { useTimeout } from '../helpers';
+
+import {
+  transitionStates,
+  getNextTransitionState,
+  getMaxTransitionProperties,
+} from './domain';
 
 const forceReflow = (el: HTMLElement | null) => el && el.offsetHeight;
 

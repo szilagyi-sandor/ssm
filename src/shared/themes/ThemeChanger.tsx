@@ -3,12 +3,12 @@ import { useThemeContext, useSetThemeContext } from './themeContext';
 
 // TODO: make this appear in a drawer
 function ThemeChanger() {
-  const currentTheme = useThemeContext();
+  const { currentThemeId } = useThemeContext();
   const setTheme = useSetThemeContext();
 
   return (
     <div>
-      <button type="button">{currentTheme.name}</button>
+      <button type="button">{currentThemeId}</button>
 
       <ul>
         {Object.keys(themes).map((key) => {
@@ -16,7 +16,15 @@ function ThemeChanger() {
 
           return (
             <li key={key}>
-              <button onClick={() => setTheme(theme.id)} type="button">
+              <button
+                onClick={() =>
+                  setTheme((prevState) => ({
+                    ...prevState,
+                    upcomingThemeId: theme.id,
+                  }))
+                }
+                type="button"
+              >
                 {theme.name}
               </button>
             </li>

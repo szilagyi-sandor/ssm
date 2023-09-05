@@ -2,7 +2,6 @@ import { PropsWithChildren, useEffect, useState } from 'react';
 import { ScrollRestoration, useLocation } from 'react-router-dom';
 import { ErrorPage } from '@pages';
 import { ErrorBoundary } from '../../error';
-import { ANIMATION_IN_DURATION } from './switchConfig';
 import { MainMenu, LightBeam, LoadingIndicator } from './ui';
 import {
   CustomSuspense,
@@ -20,6 +19,7 @@ import classes from './layout.module.scss';
 // tested only in chrome.
 // TODO: test in other browsers
 import '@assets/styles/lightBeam/fonts.scss';
+import { themeConfigs } from '../domain';
 
 function Layout({ children }: PropsWithChildren) {
   const { pathname } = useLocation();
@@ -37,7 +37,7 @@ function Layout({ children }: PropsWithChildren) {
   useEffect(() => {
     timeoutRef.current = setTimeout(() => {
       setAnimationInLoading(false);
-    }, ANIMATION_IN_DURATION);
+    }, themeConfigs.lightBeam.animateInDuration);
   }, [timeoutRef]);
 
   return (
