@@ -148,8 +148,15 @@ $shadowLength: 12px;
       ),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
 
-    opacity: 0;
-    animation: appear 300ms linear 600ms 1 forwards;
+    &.appear {
+      opacity: 0;
+      animation: appear 300ms linear 600ms 1 forwards;
+    }
+
+    &.disappear {
+      opacity: 1;
+      animation: disappear 300ms linear 600ms 1 forwards;
+    }
   }
 
   .overlay {
@@ -161,7 +168,15 @@ $shadowLength: 12px;
     position: fixed;
     background: $black-300;
 
-    animation: disappear 400ms linear 1100ms forwards;
+    &.appear {
+      opacity: 0;
+      animation: appear 400ms linear 1100ms 1 forwards;
+    }
+
+    &.disappear {
+      opacity: 1;
+      animation: disappear 400ms linear 1100ms 1 forwards;
+    }
   }
 }
 

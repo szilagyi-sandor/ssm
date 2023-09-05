@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { useThemeContext } from '../../themeContext';
 import { useLightBeamStageContext } from '../lightBeamStageContext';
 import { useTransitionTracker } from '../../../animation/useTransitionTracker';
 import { useSmoothLoadingContext } from '../../../loading/smoothLoadingContext';
@@ -13,8 +14,10 @@ const skippedTransitionProperties = ['box-shadow'];
 // the grid and the lightBeam are
 // different elements so z-index is easier to manage
 function LightBeam({ errorBoundaryActive }: Props) {
-  const loading = useSmoothLoadingContext();
   const stage = useLightBeamStageContext();
+  const loading = useSmoothLoadingContext();
+  const { upcomingThemeId: changing } = useThemeContext();
+
   const available = !errorBoundaryActive && !loading;
 
   const {
@@ -22,7 +25,7 @@ function LightBeam({ errorBoundaryActive }: Props) {
     onTransitionEnd,
     transitionState: { name: transitionName },
   } = useTransitionTracker<HTMLDivElement>({
-    on: true,
+    on: !changing,
     timeout: 1500,
     mountAnimation: true,
     detectLastTransition: true,
@@ -42,9 +45,19 @@ function LightBeam({ errorBoundaryActive }: Props) {
         })}
       />
 
-      <div className={classes.overlay} />
+      <div
+        className={classNames(
+          classes.overlay,
+          changing ? classes.appear : classes.disappear
+        )}
+      />
 
-      <div className={classes.grid} />
+      <div
+        className={classNames(
+          classes.grid,
+          changing ? classes.disappear : classes.appear
+        )}
+      />
     </div>
   );
 }
