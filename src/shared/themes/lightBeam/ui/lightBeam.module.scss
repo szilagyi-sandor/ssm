@@ -3,6 +3,15 @@
 
 $shadowLength: 12px;
 
+$beamDelay: 200ms;
+$beamDuration: 400ms;
+
+$gridDelay: $beamDelay + $beamDuration;
+$gridDuration: 300ms;
+
+$overlayDelay: $gridDelay + $gridDuration + 200ms;
+$overlayDuration: 400ms;
+
 @property --beforeColor {
   syntax: '<color>';
   initial-value: #fff;
@@ -115,13 +124,13 @@ $shadowLength: 12px;
     &.endInit {
       transition: box-shadow $beamTransitionDuration
           $beamTransitionTimingFunction,
-        bottom 400ms linear 100ms;
+        bottom $beamDuration linear $beamDelay;
     }
 
     &.endTransitioning {
       transition: box-shadow $beamTransitionDuration
           $beamTransitionTimingFunction,
-        top 400ms linear 100ms;
+        top $beamDuration linear $beamDelay;
     }
   }
 
@@ -150,12 +159,12 @@ $shadowLength: 12px;
 
     &.appear {
       opacity: 0;
-      animation: appear 300ms linear 600ms 1 forwards;
+      animation: appear $gridDuration linear $gridDelay 1 forwards;
     }
 
     &.disappear {
       opacity: 1;
-      animation: disappear 300ms linear 600ms 1 forwards;
+      animation: disappear $gridDuration linear $gridDelay 1 forwards;
     }
   }
 
@@ -170,12 +179,12 @@ $shadowLength: 12px;
 
     &.appear {
       opacity: 0;
-      animation: appear 400ms linear 1100ms 1 forwards;
+      animation: appear $overlayDuration linear $overlayDelay 1 forwards;
     }
 
     &.disappear {
       opacity: 1;
-      animation: disappear 400ms linear 1100ms 1 forwards;
+      animation: disappear $overlayDuration linear $overlayDelay 1 forwards;
     }
   }
 }

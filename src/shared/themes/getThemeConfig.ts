@@ -1,4 +1,5 @@
-import { ThemeConfig, ThemeKey, themeConfigs, themes } from './domain';
+import { themeConfigs } from './themeConfigs';
+import { ThemeConfig, ThemeKey, themes } from './domain';
 
 export const getThemeConfig = (id?: number): ThemeConfig | undefined => {
   if (id === undefined) {
@@ -12,3 +13,5 @@ export const getThemeConfig = (id?: number): ThemeConfig | undefined => {
 
   return themeConfigs[selectedKey as ThemeKey];
 };
+
+// CHECKED 0.2.1

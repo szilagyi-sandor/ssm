@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from '@shared/themes';
 import { FontLoadingProvider } from '@shared/loading';
 import { ErrorBoundary, RootError } from '@shared/error';
-import { LightBeamStageProvider } from '@shared/themes/lightBeam';
+
 import { AppsettingsProvider, getAppsettings } from '@shared/settings';
 import { App } from './App';
 import './assets/styles/defaults.scss';
@@ -24,9 +24,7 @@ const startApp = async () => {
         <AppsettingsProvider value={appsettings}>
           <FontLoadingProvider>
             <ThemeProvider>
-              <LightBeamStageProvider>
-                <App />
-              </LightBeamStageProvider>
+              <App />
             </ThemeProvider>
           </FontLoadingProvider>
         </AppsettingsProvider>

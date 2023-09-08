@@ -27,21 +27,20 @@ const getLayoutById = (id?: number) => {
 function Layout({ children }: PropsWithChildren) {
   const { restartTimeout } = useTimeout();
   const setThemeContext = useSetThemeContext();
-  const { currentThemeId, upcomingThemeId } = useThemeContext();
+  const { currentThemeId, upcomingThemeId, count } = useThemeContext();
 
   // set timeout to switch the current theme to the upcoming
   useEffect(() => {
-    if (upcomingThemeId && upcomingThemeId !== currentThemeId) {
+    if (upcomingThemeId) {
       const config = getThemeConfig(currentThemeId);
 
-      restartTimeout(
-        () =>
-          setThemeContext({
-            currentThemeId: upcomingThemeId,
-            upcomingThemeId: undefined,
-          }),
-        config?.animateOutDuration || 0
-      );
+      restartTimeout(() => {
+        setThemeContext(({ count: prevCount }) => ({
+          currentThemeId: upcomingThemeId,
+          upcomingThemeId: undefined,
+          count: prevCount + 1,
+        }));
+      }, config?.animateOutDuration || 0);
     }
   }, [upcomingThemeId, currentThemeId, setThemeContext, restartTimeout]);
 
@@ -56,7 +55,7 @@ function Layout({ children }: PropsWithChildren) {
     return null;
   }
 
-  return <CurrentLayout>{children}</CurrentLayout>;
+  return <CurrentLayout key={count}>{children}</CurrentLayout>;
 }
 
 export { Layout };

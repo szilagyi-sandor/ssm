@@ -1,5 +1,6 @@
 export * from './domain';
 export * from './getTheme';
+export * from './themeConfigs';
 export * from './ThemeChanger';
 export * from './themeContext';
 export * from './getThemeById';

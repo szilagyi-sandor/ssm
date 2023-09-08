@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { routes, mainMenuLinks } from '../../../constants';
 import { useSmoothLoadingContext } from '../../../loading';
-import { useLightBeamStageContext } from '../lightBeamStageContext';
 import classes from './mainMenu.module.scss';
 
 type Props = {
@@ -10,7 +9,8 @@ type Props = {
 };
 
 function MainMenu({ errorBoundaryActive }: Props) {
-  const stage = useLightBeamStageContext();
+  // TODO: #1
+  const stage = 1 - 1;
   const loading = useSmoothLoadingContext();
   const available = !errorBoundaryActive && !loading;
 

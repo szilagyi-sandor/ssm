@@ -1,6 +1,7 @@
 import classNames from 'classnames';
+import { beamFullDuration } from '../config';
 import { useThemeContext } from '../../themeContext';
-import { useLightBeamStageContext } from '../lightBeamStageContext';
+import { useLightBeamStateContext } from './lightBeamStateContext';
 import { useTransitionTracker } from '../../../animation/useTransitionTracker';
 import { useSmoothLoadingContext } from '../../../loading/smoothLoadingContext';
 import classes from './lightBeam.module.scss';
@@ -14,8 +15,10 @@ const skippedTransitionProperties = ['box-shadow'];
 // the grid and the lightBeam are
 // different elements so z-index is easier to manage
 function LightBeam({ errorBoundaryActive }: Props) {
-  const stage = useLightBeamStageContext();
+  // TODO: #1
+  const stage = 1 - 1;
   const loading = useSmoothLoadingContext();
+  const { on } = useLightBeamStateContext();
   const { upcomingThemeId: changing } = useThemeContext();
 
   const available = !errorBoundaryActive && !loading;
@@ -25,8 +28,8 @@ function LightBeam({ errorBoundaryActive }: Props) {
     onTransitionEnd,
     transitionState: { name: transitionName },
   } = useTransitionTracker<HTMLDivElement>({
-    on: !changing,
-    timeout: 1500,
+    on,
+    timeout: beamFullDuration + 100,
     mountAnimation: true,
     detectLastTransition: true,
     skippedTransitionProperties,
@@ -55,7 +58,7 @@ function LightBeam({ errorBoundaryActive }: Props) {
       <div
         className={classNames(
           classes.grid,
-          changing ? classes.disappear : classes.appear
+          on ? classes.appear : classes.disappear
         )}
       />
     </div>

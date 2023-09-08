@@ -1,11 +1,8 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { RefObject, useCallback, useEffect, useRef, useState } from 'react';
 import { useTimeout } from '../helpers';
-
-import {
-  transitionStates,
-  getNextTransitionState,
-  getMaxTransitionProperties,
-} from './domain';
+import { TransitionState, transitionStates } from './domain';
+import { getNextTransitionState } from './getNextTransitionState';
+import { getMaxTransitionProperties } from './getMaxTransitionProperties';
 
 const forceReflow = (el: HTMLElement | null) => el && el.offsetHeight;
 
@@ -15,6 +12,12 @@ type Param = {
   mountAnimation?: boolean;
   detectLastTransition?: boolean;
   skippedTransitionProperties?: string[];
+};
+
+export type TransitionTrackerResponse<T extends HTMLElement> = {
+  ref: RefObject<T>;
+  transitionState: TransitionState;
+  onTransitionEnd: (e: React.TransitionEvent<HTMLElement>) => void;
 };
 
 export const useTransitionTracker = <T extends HTMLElement>({

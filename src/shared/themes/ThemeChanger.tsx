@@ -1,8 +1,12 @@
 import { ThemeKey, themes } from './domain';
 import { useThemeContext, useSetThemeContext } from './themeContext';
 
-function ThemeChanger() {
-  const { currentThemeId } = useThemeContext();
+type Props = {
+  disabled?: boolean;
+};
+
+function ThemeChanger({ disabled }: Props) {
+  const { currentThemeId, upcomingThemeId } = useThemeContext();
   const setTheme = useSetThemeContext();
 
   return (
@@ -16,6 +20,7 @@ function ThemeChanger() {
           return (
             <li key={key}>
               <button
+                disabled={disabled || !!upcomingThemeId}
                 onClick={() =>
                   setTheme((prevState) => ({
                     ...prevState,

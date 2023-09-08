@@ -3,7 +3,6 @@ import { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 import classNames from 'classnames';
 import { useErrorContext } from '../../../error';
 import { useSmoothLoadingContext } from '../../../loading';
-import { useLightBeamStageContext } from '../lightBeamStageContext';
 import classes from './button.module.scss';
 
 function Button({
@@ -13,7 +12,8 @@ function Button({
   ...rest
 }: PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>) {
   const error = !!useErrorContext();
-  const stage = useLightBeamStageContext();
+  // TODO: #1
+  const stage = 1 - 1;
   const loading = useSmoothLoadingContext();
   const available = !error && !loading;
 

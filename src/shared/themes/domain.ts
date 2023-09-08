@@ -11,6 +11,9 @@ export type ThemeConfig = {
 export type ThemeContext = {
   currentThemeId: number;
   upcomingThemeId?: number;
+  // counting theme changes is helping with
+  // state re-initialization if we switch to the same theme.
+  count: number;
 };
 
 export const themes = {
@@ -19,11 +22,6 @@ export const themes = {
 };
 
 export type ThemeKey = keyof typeof themes;
-
-export const themeConfigs: Record<ThemeKey, ThemeConfig> = {
-  lightBeam: { animateInDuration: 1500, animateOutDuration: 1500 },
-  triangles: { animateInDuration: 100, animateOutDuration: 100 },
-};
 
 export type ThemeClasses = Record<ThemeKey, CSSModuleClasses>;
 
